@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>C&#43;&#43; Const总结</title>
+
+  
+  
+  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
+  
+  <link href="//at.alicdn.com" rel="dns-prefetch">
+  
+  <link href="//fonts.googleapis.com" rel="dns-prefetch">
+  <link href="//fonts.gstatic.com" rel="dns-prefetch">
+  
+  
+  
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  
+
+  
+
+  
+  <meta name="author" content="迢晴">
+  <meta name="description" content="const限定符在C&#43;&#43;中非常常见，有以下几种用途
+">
+
+  
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@gohugoio">
+    <meta name="twitter:title" content="C&#43;&#43; Const总结">
+    <meta name="twitter:description" content="const限定符在C&#43;&#43;中非常常见，有以下几种用途
+">
+    <meta name="twitter:image" content="/images/avatar.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="C&#43;&#43; Const总结">
+  <meta property="og:description" content="const限定符在C&#43;&#43;中非常常见，有以下几种用途
+">
+  <meta property="og:url" content="https://distancerr.github.io/post/const/">
+  <meta property="og:image" content="/images/avatar.jpg">
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6">
+
+
+<link rel="canonical" href="https://distancerr.github.io/post/const/">
+
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<meta name="google-site-verification" content="UPAw7bmRza01hXSeiCc9M-U-uIEfz0saOw_cWjKA-z4">
+<meta name="msvalidate.01" content="22596E34341DD1D17D6022C44647E587">
+
+
+
+
+
+<meta name="theme-color" content="#02b875">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="迢晴">
+<meta name="msapplication-tooltip" content="迢晴">
+<meta name='msapplication-navbutton-color' content="#02b875">
+<meta name="msapplication-TileColor" content="#02b875">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+<link rel="icon" href="https://distancerr.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://distancerr.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://distancerr.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="https://distancerr.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://distancerr.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="https://distancerr.github.io/manifest.json">
+
+
+<link rel="preload" href="https://distancerr.github.io/styles/main-rendered.min.css" as="style">
+
+
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
+<link rel="preload" href="https://distancerr.github.io/images/avatar.jpg" as="image">
+<link rel="preload" href="https://distancerr.github.io/images/grey-prism.svg" as="image">
+
+
+<style>
+  body {
+    background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="https://distancerr.github.io/styles/main-rendered.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
+
+
+
+  
+  
+<!--[if lte IE 8]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ie8@1.1.2/dist/videojs-ie8.min.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+<![endif]-->
+
+
+</head>
+  <body>
+    <div class="suspension">
+      <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a href="https://distancerr.github.io"><img class="avatar" src="https://distancerr.github.io/images/avatar.jpg" alt="Avatar"></a>
+  
+  <h2 class="title"><a href="https://distancerr.github.io">迢晴</a></h2>
+  
+  <p class="subtitle">千里之行，厚积薄发</p>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
+  </button>
+
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+          
+          
+           is-active">
+          <a href="https://distancerr.github.io/">主页</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/tags/">标签</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/links/">友链</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/about/">关于</a>
+        </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list"><li class="social-item">
+          <a href="mailto:zou.tiaoqing@outlook.com" title="Email" aria-label="Email">
+            <span class="icon icon-email" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="//github.com/%e8%bf%a2%e6%99%b4" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="icon icon-github" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="https://distancerr.github.io/images/wechatQRCode.png" rel="me" title="Wechat" aria-label="Wechat">
+            <span class="icon icon-wechat" aria-hidden="true"></span>
+          </a>
+        </li></ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">C&#43;&#43; Const总结</h1>
+      <p class="post-meta">@迢晴 · Aug 3, 2019 · 2 min read</p>
+    </header>
+    <article class="post-content"><p>const限定符在C++中非常常见，有以下几种用途</p>
+
+<p>const限定符在C++中非常常见，有以下几种用途</p>
+
+<h4 id="const修饰变量">const修饰变量</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+}
+</code></pre></div>
+<p>上述程序编译报错，原因是不能给const对象在初始化后赋值。
+我们有时候想让一个const对象在多个文件之间共享， 但是const对象默认只在本文件中有效，那么如何实现共享呢?
+源文件1</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</code></pre></div>
+<p>源文件2</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> a;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    cout <span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span> endl;
+}
+</code></pre></div>
+<p>输出</p>
+
+<pre><code>10
+</code></pre>
+
+<h4 id="const修饰指针和引用">const修饰指针和引用</h4>
+
+<p>其实可以谈谈顶层const和底层const，顶层const指的就是指针本身是个常量，底层const表示指针所指向的对象是一个常量，举个例子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> p <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a; <span style="color:#75715e">// 顶层const
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> var <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// 顶层const
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>ptr <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>var; <span style="color:#75715e">// 底层const
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>lvar <span style="color:#f92672">=</span> var; <span style="color:#75715e">// 底层const
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">const</span> lptr <span style="color:#f92672">=</span> ptr; <span style="color:#75715e">// 第一个const为底层const，第二个const为顶层const
+</span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;a: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;       *ptr = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>ptr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;       lvar = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> lvar <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+<p>其实判断非常简单, 你可以看const修饰的具体目标</p>
+
+<pre><code>const int var = 1; // const修饰的是int变量, var的值不能变,所以是顶层const
+int *const p = &amp;a; // const修饰的是p这个指针变量, p的值不能变, 但p所指向的int变量,所以是顶层const
+</code></pre>
+
+<p>试着以上面这种思维方式来推断一下上述具有两个const对象的语句, 如果还是比较难以分辨顶层const和底层const可以从右往左看，这样比较容易分辨</p>
+
+<h4 id="const修饰函数参数">const修饰函数参数</h4>
+
+<p>有时为了防止传入引用或指针改变原来的实参值，const修饰函数参数可以很好的解决这个问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">func</span>(<span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>a){
+    <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">=</span> a;
+    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    func(a);
+    cout <span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+<p>我们本不希望改变a的值，但无意之中通过引用b修改了a的值，如果我们的函数式void func(const int &amp;a)这种，则在编译过程中就会直接报错。</p>
+
+<h4 id="const修饰函数返回值">const修饰函数返回值</h4>
+
+<p>令函数返回值为一个常量值，往往可以降低因客户错误而造成的意外，而不至于放弃安全性和高效性</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">class</span><span style="color:#960050;background-color:#1e0010"> </span><span style="color:#a6e22e">A</span>
+{
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> _a;
+    string _str;
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    A(<span style="color:#66d9ef">int</span> a, string str)<span style="color:#f92672">:</span>_a(a), _str(str){}
+    <span style="color:#66d9ef">const</span> A <span style="color:#66d9ef">operator</span><span style="color:#f92672">+</span>(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>rhs);
+
+    <span style="color:#66d9ef">friend</span> ostream <span style="color:#f92672">&amp;</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;&lt;</span>(ostream <span style="color:#f92672">&amp;</span>os, <span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>a)
+    {
+        os <span style="color:#f92672">&lt;&lt;</span> a._str <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">&lt;&lt;</span> a._a;
+        <span style="color:#66d9ef">return</span> os;
+    }
+};
+
+<span style="color:#66d9ef">const</span> A A<span style="color:#f92672">::</span><span style="color:#66d9ef">operator</span><span style="color:#f92672">+</span>(<span style="color:#66d9ef">const</span> A <span style="color:#f92672">&amp;</span>rhs)
+{
+    <span style="color:#66d9ef">return</span> A(<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>_a <span style="color:#f92672">+</span> rhs._a, <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>_str <span style="color:#f92672">+</span> rhs._str);
+}
+
+<span style="color:#66d9ef">int</span> main(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    A a1(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;a1&#34;</span>);
+    A <span style="color:#a6e22e">a2</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;a2&#34;</span>);
+    A <span style="color:#a6e22e">a3</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;a3&#34;</span>);
+    cout <span style="color:#f92672">&lt;&lt;</span> (a1 <span style="color:#f92672">+</span> a2) <span style="color:#f92672">&lt;&lt;</span> endl;
+    (a1 <span style="color:#f92672">+</span> a2) <span style="color:#f92672">=</span> a3; <span style="color:#75715e">//如果去掉const，这里会有怎样的变化
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+<h4 id="const修饰类成员函数">const修饰类成员函数</h4>
+
+<p>调用此函数的类成员变量无法被改变</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">class</span><span style="color:#960050;background-color:#1e0010"> </span><span style="color:#a6e22e">A</span>{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    A(<span style="color:#66d9ef">int</span> a) {_a <span style="color:#f92672">=</span> a;}
+    <span style="color:#66d9ef">void</span> func() <span style="color:#66d9ef">const</span> {cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">++</span>_a <span style="color:#f92672">&lt;&lt;</span> endl;}
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    <span style="color:#66d9ef">int</span> _a;
+};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    A a(<span style="color:#ae81ff">0</span>);
+    a.func();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+<p>看这里的代码，因为func函数添加了const，所以编译直接报错说_a是一个read-only变量，去掉const一切正常</p>
+
+<h4 id="const修饰类常量对象">const修饰类常量对象</h4>
+
+<p>类的const对象只能调用const成员函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">class</span><span style="color:#960050;background-color:#1e0010"> </span><span style="color:#a6e22e">A</span>
+{
+<span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+    A(){cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;non-const&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;}
+    <span style="color:#66d9ef">void</span> test() <span style="color:#66d9ef">const</span>{cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;const&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;} <span style="color:#75715e">//把这里的const去掉看看会发生什么
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+{
+    <span style="color:#66d9ef">const</span> A a1;
+    a1.test();
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div>
+<p>能想到的就这么多了，欢迎补充，如有错误，还请指正</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://distancerr.github.io/tags/const"><span class="tag">Const</span></a></li>
+        
+          <li><a href="https://distancerr.github.io/tags/c&#43;&#43;"><span class="tag">C&#43;&#43;</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  
+<footer class="site-footer">
+  <p>© 2017-2019 迢晴</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
+
+
+
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    },
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+
+
+<script src="https://distancerr.github.io/scripts/index.min.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('\/service-worker.js').then(function() {
+      console.log('[ServiceWorker] Registered');
+    });
+  }
+</script>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Linux下VSCode配置C&#43;&#43;环境</title>
+
+  
+  
+  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
+  
+  <link href="//at.alicdn.com" rel="dns-prefetch">
+  
+  <link href="//fonts.googleapis.com" rel="dns-prefetch">
+  <link href="//fonts.gstatic.com" rel="dns-prefetch">
+  
+  
+  
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  
+
+  
+
+  
+  <meta name="author" content="迢晴">
+  <meta name="description" content="鉴于网上关于VSCode上配置C&#43;&#43;的文章都已经太老了，在自己看完微软提供的部分文档后，想写一篇关于在VSCode上配置C&#43;&#43;的文章，分享一下，下面进入正题：
+">
+
+  
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@gohugoio">
+    <meta name="twitter:title" content="Linux下VSCode配置C&#43;&#43;环境">
+    <meta name="twitter:description" content="鉴于网上关于VSCode上配置C&#43;&#43;的文章都已经太老了，在自己看完微软提供的部分文档后，想写一篇关于在VSCode上配置C&#43;&#43;的文章，分享一下，下面进入正题：
+">
+    <meta name="twitter:image" content="/images/avatar.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Linux下VSCode配置C&#43;&#43;环境">
+  <meta property="og:description" content="鉴于网上关于VSCode上配置C&#43;&#43;的文章都已经太老了，在自己看完微软提供的部分文档后，想写一篇关于在VSCode上配置C&#43;&#43;的文章，分享一下，下面进入正题：
+">
+  <meta property="og:url" content="https://distancerr.github.io/post/vscode/">
+  <meta property="og:image" content="/images/avatar.jpg">
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6">
+
+
+<link rel="canonical" href="https://distancerr.github.io/post/vscode/">
+
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<meta name="google-site-verification" content="UPAw7bmRza01hXSeiCc9M-U-uIEfz0saOw_cWjKA-z4">
+<meta name="msvalidate.01" content="22596E34341DD1D17D6022C44647E587">
+
+
+
+
+
+<meta name="theme-color" content="#02b875">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="迢晴">
+<meta name="msapplication-tooltip" content="迢晴">
+<meta name='msapplication-navbutton-color' content="#02b875">
+<meta name="msapplication-TileColor" content="#02b875">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+<link rel="icon" href="https://distancerr.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://distancerr.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://distancerr.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="https://distancerr.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://distancerr.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="https://distancerr.github.io/manifest.json">
+
+
+<link rel="preload" href="https://distancerr.github.io/styles/main-rendered.min.css" as="style">
+
+
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
+<link rel="preload" href="https://distancerr.github.io/images/avatar.jpg" as="image">
+<link rel="preload" href="https://distancerr.github.io/images/grey-prism.svg" as="image">
+
+
+<style>
+  body {
+    background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="https://distancerr.github.io/styles/main-rendered.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
+
+
+
+  
+  
+<!--[if lte IE 8]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ie8@1.1.2/dist/videojs-ie8.min.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+<![endif]-->
+
+
+</head>
+  <body>
+    <div class="suspension">
+      <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a href="https://distancerr.github.io"><img class="avatar" src="https://distancerr.github.io/images/avatar.jpg" alt="Avatar"></a>
+  
+  <h2 class="title"><a href="https://distancerr.github.io">迢晴</a></h2>
+  
+  <p class="subtitle">千里之行，厚积薄发</p>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
+  </button>
+
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+          
+          
+           is-active">
+          <a href="https://distancerr.github.io/">主页</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/tags/">标签</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/links/">友链</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/about/">关于</a>
+        </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list"><li class="social-item">
+          <a href="mailto:zou.tiaoqing@outlook.com" title="Email" aria-label="Email">
+            <span class="icon icon-email" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="//github.com/%e8%bf%a2%e6%99%b4" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="icon icon-github" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="https://distancerr.github.io/images/wechatQRCode.png" rel="me" title="Wechat" aria-label="Wechat">
+            <span class="icon icon-wechat" aria-hidden="true"></span>
+          </a>
+        </li></ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Linux下VSCode配置C&#43;&#43;环境</h1>
+      <p class="post-meta">@迢晴 · Jul 23, 2019 · 2 min read</p>
+    </header>
+    <article class="post-content"><p>鉴于网上关于VSCode上配置C++的文章都已经太老了，在自己看完微软提供的部分文档后，想写一篇关于在VSCode上配置C++的文章，分享一下，下面进入正题：</p>
+
+<hr />
+
+<p>2019.5.20更新：
+添加一些个人觉得有用的个人设置，仅供参考</p>
+
+<pre><code>    &quot;editor.minimap.enabled&quot;: false,    隐藏缩略图
+    &quot;editor.snippetSuggestions&quot;: &quot;none&quot;,   关闭snippet
+    &quot;editor.formatOnType&quot;: true,    每写完一行就自动格式化
+    &quot;clang.completion.completeMacros&quot;: false,    关闭烦人的宏
+    下面是clang和微软官方c++插件的搭配使用
+    &quot;C_Cpp.default.cppStandard&quot;: &quot;c++17&quot;,
+    &quot;C_Cpp.default.cStandard&quot;: &quot;c11&quot;,
+    &quot;C_Cpp.autocomplete&quot;: &quot;Default&quot;,
+    &quot;C_Cpp.errorSquiggles&quot;: &quot;Disabled&quot;,
+    &quot;C_Cpp.clang_format_style&quot;: &quot;Visual Studio&quot;,
+    &quot;clang.cxxflags&quot;: [
+        &quot;-std=c++17&quot;,
+        &quot;-Wall&quot;,
+    ],
+    &quot;clang.cflags&quot;: [
+        &quot;-std=c11&quot;,
+        &quot;Wall&quot;
+    ],
+    &quot;clang.completion.triggerChars&quot;: [
+        &quot;.&quot;,
+        &quot;:&quot;,
+        &quot;&gt;&quot;
+    ],
+    &quot;clang.completion.enable&quot;: false,
+    &quot;clang.diagnostic.enable&quot;: true,
+</code></pre>
+
+<p>我的个人设置：<a href="https://github.com/Raysuner/VScode/blob/master/setting.json">https://github.com/Raysuner/VScode/blob/master/setting.json</a></p>
+
+<hr />
+
+<h3 id="准备工作">准备工作</h3>
+
+<p>下载微软官方提供的C/C++，你可以看到，官方提供的插件评分并不高，我自己还下载了一个C/C++ Clang Command Adapter插件和Include Autocomplete插件搭配使用</p>
+
+<h3 id="编译运行">编译运行</h3>
+
+<h4 id="方式">方式</h4>
+
+<ol>
+<li>第一种直接在商店下载插件就可以使用，不过进行了一些小小的配置后方便使用，最好是能把Run In Terminal，Save File Before Run，clearPreviousOutput，ignoreSelection这几个选项配置下。</li>
+<li>通过编写tasks.json配置文件
+
+<ul>
+<li>了解下VSCode中的<a href="https://code.visualstudio.com/docs/editor/variables-reference">预定义变量</a></li>
+<li>VSCode更新后的配置文件编写的变化</li>
+<li>Here is a migration guide:
+
+<ul>
+<li><strong>taskName</strong>: Use the <code>label</code> property instead.</li>
+<li><strong>isShellCommand</strong>: Use the <code>&quot;type&quot;: &quot;shell&quot;</code> property instead.</li>
+<li><strong>isBuildCommand</strong>: Use the <code>&quot;group&quot;: &quot;build&quot;</code> property instead.</li>
+<li><strong>isTestCommand</strong>: Use the <code>&quot;group&quot;: &quot;test&quot;</code> property instead.</li>
+<li><strong>echoCommand</strong>: Use the <code>&quot;presentation&quot; : { &quot;echo&quot;: &quot;...&quot; }</code> property instead.</li>
+<li><strong>showOutput</strong>: Use the <code>&quot;presentation&quot; : { &quot;reveal&quot;: &quot;...&quot; }</code> property instead.</li>
+<li><strong>suppressTaskName</strong>: By default, the task name gets appended to the list of arguments when running a task version <code>0.1.0</code>. Since version <code>2.0.0</code> supports commands per task, you can inline the command into the task and specify the arguments accordingly.</li>
+</ul></li>
+</ul></li>
+</ol>
+
+<p>所以以前那些博客的配置标签你自己需要去改正，从0.1.0到2.0.0的一些变化，我把<a href="https://code.visualstudio.com/docs/editor/tasks#_convert-from-010-to-200">链接放在这</a></p>
+
+<h4 id="配置">配置</h4>
+
+<p>了解了vscode中的预定义变量后，首先要调出tasks.json文件，我放了一个动图在下面，视频刚开始的时候我按了ctrl+shift+b组合键，后面的操作就在图里了，当然这里我把debug需要用到的launch.json文件也调出来了</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/vscode.gif" alt="" /></p>
+
+<p>下面开始编写文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+     <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">See</span> <span style="color:#960050;background-color:#1e0010">https://go.microsoft.com/fwlink/?LinkId=733558</span>
+     <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">for</span> <span style="color:#960050;background-color:#1e0010">the</span> <span style="color:#960050;background-color:#1e0010">documentation</span> <span style="color:#960050;background-color:#1e0010">about</span> <span style="color:#960050;background-color:#1e0010">the</span> <span style="color:#960050;background-color:#1e0010">tasks.json</span> <span style="color:#960050;background-color:#1e0010">format</span>
+     <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;2.0.0&#34;</span>,
+     <span style="color:#f92672">&#34;tasks&#34;</span>: [
+         {
+             <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;build&#34;</span>, <span style="color:#960050;background-color:#1e0010">//相当与名字，与后面launch.json中preLaunchTask参数要保持一致</span>
+             <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+             <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;g++&#34;</span>, 
+             <span style="color:#f92672">&#34;args&#34;</span>: [     <span style="color:#960050;background-color:#1e0010">//编译所需要的参数，包括编译方式，源文件，和生成的可执行文件</span>
+                 <span style="color:#e6db74">&#34;-g&#34;</span>,
+                 <span style="color:#e6db74">&#34;-Wall&#34;</span>,
+                 <span style="color:#e6db74">&#34;-std=c++17&#34;</span>,
+                 <span style="color:#e6db74">&#34;${file}&#34;</span>,
+                 <span style="color:#e6db74">&#34;-o&#34;</span>,
+                 <span style="color:#e6db74">&#34;${fileDirname}/${fileBasenameNoExtension}&#34;</span>
+             ],
+             <span style="color:#f92672">&#34;presentation&#34;</span>: {   <span style="color:#960050;background-color:#1e0010">//控制终端显示</span>
+                 <span style="color:#f92672">&#34;echo&#34;</span>: <span style="color:#66d9ef">true</span>,
+                 <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+                 <span style="color:#f92672">&#34;focus&#34;</span>: <span style="color:#66d9ef">false</span>,
+                 <span style="color:#f92672">&#34;panel&#34;</span>: <span style="color:#e6db74">&#34;shared&#34;</span>,
+                 <span style="color:#f92672">&#34;showReuseMessage&#34;</span>: <span style="color:#66d9ef">false</span>,
+                 <span style="color:#f92672">&#34;clear&#34;</span>: <span style="color:#66d9ef">true</span>
+             },
+         },
+         {
+             <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;run&#34;</span>,
+             <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+             <span style="color:#f92672">&#34;dependsOn&#34;</span>: [<span style="color:#e6db74">&#34;build&#34;</span>], <span style="color:#960050;background-color:#1e0010">//依赖的配置，运行之前需要编译链接形成可执行文件</span>
+             <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;${fileDirname}/${fileBasenameNoExtension}&#34;</span>,
+             <span style="color:#f92672">&#34;args&#34;</span>: [],
+             <span style="color:#f92672">&#34;presentation&#34;</span>: {   <span style="color:#960050;background-color:#1e0010">//控制终端显示</span>
+                 <span style="color:#f92672">&#34;echo&#34;</span>: <span style="color:#66d9ef">false</span>,  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">执行命令是否输出到集成终端</span>
+                 <span style="color:#f92672">&#34;reveal&#34;</span>: <span style="color:#e6db74">&#34;always&#34;</span>,
+                 <span style="color:#f92672">&#34;focus&#34;</span>: <span style="color:#66d9ef">false</span>,
+                 <span style="color:#f92672">&#34;panel&#34;</span>: <span style="color:#e6db74">&#34;shared&#34;</span>, <span style="color:#960050;background-color:#1e0010">//控制是否共享面板</span>
+                 <span style="color:#f92672">&#34;showReuseMessage&#34;</span>: <span style="color:#66d9ef">false</span>, <span style="color:#960050;background-color:#1e0010">//是否显示</span><span style="color:#f92672">&#34;终端终端将被重用，是否显示&#34;</span><span style="color:#960050;background-color:#1e0010">的提示</span>
+                 <span style="color:#e6db74">&#34;clear&#34;</span>: <span style="color:#66d9ef">true</span>  <span style="color:#960050;background-color:#1e0010">//执行任务前是否清除终端</span>
+             },
+             <span style="color:#960050;background-color:#1e0010">//</span><span style="color:#f92672">&#34;problemMatcher&#34;</span>: [],
+             <span style="color:#f92672">&#34;group&#34;</span>: {           
+                 <span style="color:#f92672">&#34;kind&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>, 
+                 <span style="color:#f92672">&#34;isDefault&#34;</span>: <span style="color:#66d9ef">true</span>
+             }
+         }
+     ]
+ }</code></pre></div>
+<p>这里我参考了下<a href="https://code.visualstudio.com/docs/editor/tasks#_custom-tasks">官方文档</a>和<a href="https://zhuanlan.zhihu.com/p/35178331">知乎ctuu</a>的文章，写出了这个组合task，这个task里面包括两个配置，一个是编译，一个是运行，如何编写你可以点击官方文档的链接，同时可以在vscode中把鼠标放到参数上就会有参数所对应的功能显示出来。我们可以弄一个键位一键编译运行，在vscode左下角的设置上点击键位设置</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/keymap.png" alt="" /></p>
+
+<p>然后点击运行测试程序即可</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/run_test.png" alt="" /></p>
+
+<p>我设置的为f12，按照自己喜好即可</p>
+
+<h3 id="调试">调试</h3>
+
+<p>C/C++的调试需要编写launch.json</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+     <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">使用</span> <span style="color:#960050;background-color:#1e0010">IntelliSense</span> <span style="color:#960050;background-color:#1e0010">了解相关属性。</span> 
+     <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">悬停以查看现有属性的描述。</span>
+     <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">欲了解更多信息，请访问:</span> <span style="color:#960050;background-color:#1e0010">https://go.microsoft.com/fwlink/?linkid=830387</span>
+     <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.2.0&#34;</span>,
+     <span style="color:#f92672">&#34;configurations&#34;</span>: [
+         {
+             <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(gdb) Launch&#34;</span>,
+             <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;cppdbg&#34;</span>,
+             <span style="color:#f92672">&#34;request&#34;</span>: <span style="color:#e6db74">&#34;launch&#34;</span>,
+             <span style="color:#f92672">&#34;program&#34;</span>: <span style="color:#e6db74">&#34;${fileDirname}/${fileBasenameNoExtension}&#34;</span>, <span style="color:#960050;background-color:#1e0010">//程序可执行文件的路径</span>
+             <span style="color:#f92672">&#34;args&#34;</span>: [],
+             <span style="color:#f92672">&#34;stopAtEntry&#34;</span>: <span style="color:#66d9ef">false</span>,
+             <span style="color:#f92672">&#34;cwd&#34;</span>: <span style="color:#e6db74">&#34;${workspaceFolder}&#34;</span>, 
+             <span style="color:#f92672">&#34;environment&#34;</span>: [],
+             <span style="color:#f92672">&#34;externalConsole&#34;</span>: <span style="color:#66d9ef">false</span>, <span style="color:#960050;background-color:#1e0010">//设为false时使用集成终端，true为外置终端</span>
+             <span style="color:#f92672">&#34;linux&#34;</span>: {
+                 <span style="color:#f92672">&#34;MIMode&#34;</span>: <span style="color:#e6db74">&#34;gdb&#34;</span>,
+                 <span style="color:#f92672">&#34;miDebuggerPath&#34;</span>: <span style="color:#e6db74">&#34;/usr/bin/gdb&#34;</span>
+             },
+             <span style="color:#f92672">&#34;windows&#34;</span>: {
+                 <span style="color:#f92672">&#34;MIMode&#34;</span>: <span style="color:#e6db74">&#34;gdb&#34;</span>,
+                 <span style="color:#f92672">&#34;miDebuggerPath&#34;</span>: <span style="color:#e6db74">&#34;C:\\MinGW\\bin\\gdb.exe&#34;</span>
+             },
+             <span style="color:#f92672">&#34;setupCommands&#34;</span>: [
+                 {
+                     <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Enable pretty-printing for gdb&#34;</span>,
+                     <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;-enable-pretty-printing&#34;</span>,
+                     <span style="color:#f92672">&#34;ignoreFailures&#34;</span>: <span style="color:#66d9ef">true</span>
+                 }
+             ],
+             <span style="color:#f92672">&#34;preLaunchTask&#34;</span>: <span style="color:#e6db74">&#34;build&#34;</span>
+         }
+     ]
+ }</code></pre></div>
+<p>参数的介绍请看<a href="https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md">官方文档</a>，其实一目了然，基本都可以猜对，配置完成后，在编译过后就可以对代码进行调试</p>
+
+<p>放两张效果图</p>
+
+<p>1.编译运行</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/run.png" alt="" /></p>
+
+<p>2.调试</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/debug.png" alt="debug.png" /></p>
+
+<p>对于多文件的配置需要cmake或makefile，其实实质上都是用makefile来执行编译链接</p>
+
+<p>推荐好文：</p>
+
+<p>1.CMake：<a href="https://www.hahack.com/codes/cmake/">https://www.hahack.com/codes/cmake/</a></p>
+
+<p>如有错误，欢迎指正</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://distancerr.github.io/tags/vscode"><span class="tag">VSCode</span></a></li>
+        
+          <li><a href="https://distancerr.github.io/tags/c&#43;&#43;"><span class="tag">C&#43;&#43;</span></a></li>
+        
+          <li><a href="https://distancerr.github.io/tags/linux"><span class="tag">Linux</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  
+<footer class="site-footer">
+  <p>© 2017-2019 迢晴</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
+
+
+
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    },
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+
+
+<script src="https://distancerr.github.io/scripts/index.min.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('\/service-worker.js').then(function() {
+      console.log('[ServiceWorker] Registered');
+    });
+  }
+</script>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>

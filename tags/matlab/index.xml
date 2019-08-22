@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matlab on 迢晴</title>
+    <link>https://distancerr.github.io/tags/matlab/</link>
+    <description>Recent content in Matlab on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Tue, 23 Jul 2019 23:52:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux安装Matlab2017a</title>
+      <link>https://distancerr.github.io/post/matlab/</link>
+      <pubDate>Tue, 23 Jul 2019 23:52:04 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/matlab/</guid>
+      <description>&lt;p&gt;详细介绍Linux下Matlab的安装过程&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

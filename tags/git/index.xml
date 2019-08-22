@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on 迢晴</title>
+    <link>https://distancerr.github.io/tags/git/</link>
+    <description>Recent content in git on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Tue, 23 Jul 2019 23:51:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git常用操作</title>
+      <link>https://distancerr.github.io/post/git/</link>
+      <pubDate>Tue, 23 Jul 2019 23:51:57 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/git/</guid>
+      <description>&lt;p&gt;老是忘记git的一些操作，所以简单记录下git的常用操作&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

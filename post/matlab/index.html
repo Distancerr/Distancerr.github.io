@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Linux安装Matlab2017a</title>
+
+  
+  
+  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
+  
+  <link href="//at.alicdn.com" rel="dns-prefetch">
+  
+  <link href="//fonts.googleapis.com" rel="dns-prefetch">
+  <link href="//fonts.gstatic.com" rel="dns-prefetch">
+  
+  
+  
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  
+
+  
+
+  
+  <meta name="author" content="迢晴">
+  <meta name="description" content="详细介绍Linux下Matlab的安装过程
+">
+
+  
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@gohugoio">
+    <meta name="twitter:title" content="Linux安装Matlab2017a">
+    <meta name="twitter:description" content="详细介绍Linux下Matlab的安装过程
+">
+    <meta name="twitter:image" content="/images/avatar.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Linux安装Matlab2017a">
+  <meta property="og:description" content="详细介绍Linux下Matlab的安装过程
+">
+  <meta property="og:url" content="https://distancerr.github.io/post/matlab/">
+  <meta property="og:image" content="/images/avatar.jpg">
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6">
+
+
+<link rel="canonical" href="https://distancerr.github.io/post/matlab/">
+
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<meta name="google-site-verification" content="UPAw7bmRza01hXSeiCc9M-U-uIEfz0saOw_cWjKA-z4">
+<meta name="msvalidate.01" content="22596E34341DD1D17D6022C44647E587">
+
+
+
+
+
+<meta name="theme-color" content="#02b875">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="迢晴">
+<meta name="msapplication-tooltip" content="迢晴">
+<meta name='msapplication-navbutton-color' content="#02b875">
+<meta name="msapplication-TileColor" content="#02b875">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+<link rel="icon" href="https://distancerr.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://distancerr.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://distancerr.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="https://distancerr.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://distancerr.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="https://distancerr.github.io/manifest.json">
+
+
+<link rel="preload" href="https://distancerr.github.io/styles/main-rendered.min.css" as="style">
+
+
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
+<link rel="preload" href="https://distancerr.github.io/images/avatar.jpg" as="image">
+<link rel="preload" href="https://distancerr.github.io/images/grey-prism.svg" as="image">
+
+
+<style>
+  body {
+    background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="https://distancerr.github.io/styles/main-rendered.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
+
+
+
+  
+  
+<!--[if lte IE 8]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ie8@1.1.2/dist/videojs-ie8.min.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+<![endif]-->
+
+
+</head>
+  <body>
+    <div class="suspension">
+      <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a href="https://distancerr.github.io"><img class="avatar" src="https://distancerr.github.io/images/avatar.jpg" alt="Avatar"></a>
+  
+  <h2 class="title"><a href="https://distancerr.github.io">迢晴</a></h2>
+  
+  <p class="subtitle">千里之行，厚积薄发</p>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
+  </button>
+
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+          
+          
+           is-active">
+          <a href="https://distancerr.github.io/">主页</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/tags/">标签</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/links/">友链</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/about/">关于</a>
+        </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list"><li class="social-item">
+          <a href="mailto:zou.tiaoqing@outlook.com" title="Email" aria-label="Email">
+            <span class="icon icon-email" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="//github.com/%e8%bf%a2%e6%99%b4" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="icon icon-github" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="https://distancerr.github.io/images/wechatQRCode.png" rel="me" title="Wechat" aria-label="Wechat">
+            <span class="icon icon-wechat" aria-hidden="true"></span>
+          </a>
+        </li></ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Linux安装Matlab2017a</h1>
+      <p class="post-meta">@迢晴 · Jul 23, 2019 · 1 min read</p>
+    </header>
+    <article class="post-content"><p>详细介绍Linux下Matlab的安装过程</p>
+
+<p>先下载MATLAB2017a,<a href="https://pan.baidu.com/s/1hsVnxdE">资源在这里</a></p>
+
+<p>首先介绍一下用户名,在你的终端里面，@字符前面的就是你的用户名，我这里是raysuner<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/Ubuntu.png" alt="Alt text" /></p>
+
+<p>首先我们在家目录下面创建一个文件夹，名字随意，你自己定，我这里就叫matlab吧</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir matlab</code></pre></div>
+<p>随后我们cd到你的matlab的文件目录下，我这里是Downloads目录，然后先把第一个iso文件挂载到ubuntu上</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mount -o loop R2017a_glnxa64_dvd1.iso /home/raysuner/matlab</code></pre></div>
+<p>然后会有这样一个界面<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/iso.png" alt="Alt text" /></p>
+
+<p>然后开始进行安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo /home/raysuner/matlab/install</code></pre></div>
+<p>然后就进入了安装界面,选择用秘钥进行安装，然后点击next<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/install1.png" alt="Alt text" /></p>
+
+<p>选择next
+<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/install2.png" alt="Alt text" /></p>
+
+<p>填入激活码09806-07443-53955-64350-21751-41297</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/install4.png" alt="" /></p>
+
+<p>这里因为我安装过了，所以显示的是installed,继续点击next
+<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/install3.png" alt="Alt text" /></p>
+
+<p>然后到了60%-70%,会提示选择卸载当前的挂载点，选择第二个iso镜像，所以</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo umount /home/raysuner/matlab
+cd Downloads/iso文件夹
+sudo mount -o loop R2017a_glnxa64_dvd2.iso /home/raysuner/matlab
+这里第二个挂载的镜像要跟第一个挂载的位置要相同，我这里就都是matlab,然后点击继续就可以了</code></pre></div>
+<p>安装完之后我们来进行激活</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo mkdir /usr/local/MATLAB/R2017a/bin/licenses/ 
+ cd /your/MATLAB/files/path   // 这里自己要根据自己实际的路径来
+ sudo cp license_standalone.lic /usr/local/MATLAB/R2017a/bin/licenses/  
+ sudo cp R2017a/bin/glnxa64/libmwservices.so /usr/local/MATLAB/R2017a/bin/glnxa64/</code></pre></div>
+<p>把挂载给卸下来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo umount /home/raysuner/matlab</code></pre></div>
+<p>然后启动</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo /usr/local/MATLAB/R2017a/bin/matlab  </code></pre></div>
+<p>然后会弹出激活框，然后导入matlab文件目录下选择license_standalone.lic这个文件，即可激活,如果出现liceses的权限不够,就执行下列命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chmod <span style="color:#ae81ff">777</span> /usr/local/MATLAB/R2017a/bin/licenses/ </code></pre></div>
+<p>现在我们来建立一个的是desktop文件，方便启动</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.local/share/applications
+sudo gedit matlab.desktop</code></pre></div>
+<p>内容如下，粘贴即可，无需更改</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
+Type<span style="color:#f92672">=</span>Application
+Name<span style="color:#f92672">=</span>Matlab
+GenericName<span style="color:#f92672">=</span>Matlab 2017a
+Comment<span style="color:#f92672">=</span>Matlab:The Language of Technical Computing
+Exec<span style="color:#f92672">=</span>sh /usr/local/MATLAB/R2017a/bin/matlab -desktop
+Icon<span style="color:#f92672">=</span>/usr/local/MATLAB/R2017a/toolbox/nnet/nnresource/icons/matlab.png
+StartupNotify<span style="color:#f92672">=</span>true
+Terminal<span style="color:#f92672">=</span>false
+Categories<span style="color:#f92672">=</span>Development;Matlab;</code></pre></div>
+<p>然后在Dash里找到Matlab，把他拖拽到启动栏上，拖拽后的样子请看第一幅图
+<img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/ma.png" alt="Alt text" /></p>
+
+<p>点击图标启动发现有报错</p>
+
+<p><img src="https://ztq-img.oss-cn-hangzhou.aliyuncs.com/Matlab_error.png" alt="Alt text" /></p>
+
+<p>然后我们根据报错信息提示说在家目录下的.matlab下的文件没有权限,于是</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> cd ~/.matlab
+ chmod <span style="color:#ae81ff">777</span> R2017a</code></pre></div></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://distancerr.github.io/tags/linux"><span class="tag">Linux</span></a></li>
+        
+          <li><a href="https://distancerr.github.io/tags/matlab"><span class="tag">Matlab</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  
+<footer class="site-footer">
+  <p>© 2017-2019 迢晴</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
+
+
+
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    },
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+
+
+<script src="https://distancerr.github.io/scripts/index.min.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('\/service-worker.js').then(function() {
+      console.log('[ServiceWorker] Registered');
+    });
+  }
+</script>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>

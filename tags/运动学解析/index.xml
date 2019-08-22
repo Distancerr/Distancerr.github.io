@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>运动学解析 on 迢晴</title>
+    <link>https://distancerr.github.io/tags/%E8%BF%90%E5%8A%A8%E5%AD%A6%E8%A7%A3%E6%9E%90/</link>
+    <description>Recent content in 运动学解析 on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Tue, 23 Jul 2019 23:52:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/%E8%BF%90%E5%8A%A8%E5%AD%A6%E8%A7%A3%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>四轮麦轮的运动学解析</title>
+      <link>https://distancerr.github.io/post/motionanalysis/</link>
+      <pubDate>Tue, 23 Jul 2019 23:52:34 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/motionanalysis/</guid>
+      <description>&lt;p&gt;四轮mecanum的正逆运动学解析&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

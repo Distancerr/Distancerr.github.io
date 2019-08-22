@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on 迢晴</title>
+    <link>https://distancerr.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Sat, 03 Aug 2019 17:53:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43; Const总结</title>
+      <link>https://distancerr.github.io/post/const/</link>
+      <pubDate>Sat, 03 Aug 2019 17:53:05 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/const/</guid>
+      <description>&lt;p&gt;const限定符在C++中非常常见，有以下几种用途&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Primer第五版第三章课后习题</title>
+      <link>https://distancerr.github.io/post/c&#43;&#43;primer3/</link>
+      <pubDate>Tue, 23 Jul 2019 23:54:20 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/c&#43;&#43;primer3/</guid>
+      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;
+
+&lt;p&gt;第三章课后习题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;智能指针浅析</title>
+      <link>https://distancerr.github.io/post/smartpointer/</link>
+      <pubDate>Tue, 23 Jul 2019 23:53:11 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/smartpointer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux下VSCode配置C&#43;&#43;环境</title>
+      <link>https://distancerr.github.io/post/vscode/</link>
+      <pubDate>Tue, 23 Jul 2019 14:22:55 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/vscode/</guid>
+      <description>&lt;p&gt;鉴于网上关于VSCode上配置C++的文章都已经太老了，在自己看完微软提供的部分文档后，想写一篇关于在VSCode上配置C++的文章，分享一下，下面进入正题：&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

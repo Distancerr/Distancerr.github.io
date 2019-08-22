@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pytorch on 迢晴</title>
+    <link>https://distancerr.github.io/tags/pytorch/</link>
+    <description>Recent content in Pytorch on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Tue, 23 Jul 2019 23:50:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>构造Tensor的常用函数</title>
+      <link>https://distancerr.github.io/post/tensor/</link>
+      <pubDate>Tue, 23 Jul 2019 23:50:23 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/post/tensor/</guid>
+      <description>&lt;p&gt;简单记录下关于pytorch下tensor常用的函数用法&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

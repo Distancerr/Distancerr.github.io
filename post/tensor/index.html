@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>构造Tensor的常用函数</title>
+
+  
+  
+  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch">
+  
+  <link href="//at.alicdn.com" rel="dns-prefetch">
+  
+  <link href="//fonts.googleapis.com" rel="dns-prefetch">
+  <link href="//fonts.gstatic.com" rel="dns-prefetch">
+  
+  
+  
+  <link href="//www.google-analytics.com" rel="dns-prefetch">
+  
+
+  
+
+  
+  <meta name="author" content="迢晴">
+  <meta name="description" content="简单记录下关于pytorch下tensor常用的函数用法
+">
+
+  
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@gohugoio">
+    <meta name="twitter:title" content="构造Tensor的常用函数">
+    <meta name="twitter:description" content="简单记录下关于pytorch下tensor常用的函数用法
+">
+    <meta name="twitter:image" content="/images/avatar.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="构造Tensor的常用函数">
+  <meta property="og:description" content="简单记录下关于pytorch下tensor常用的函数用法
+">
+  <meta property="og:url" content="https://distancerr.github.io/post/tensor/">
+  <meta property="og:image" content="/images/avatar.jpg">
+
+
+
+
+<meta name="generator" content="Hugo 0.55.6">
+
+
+<link rel="canonical" href="https://distancerr.github.io/post/tensor/">
+
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+<meta name="google-site-verification" content="UPAw7bmRza01hXSeiCc9M-U-uIEfz0saOw_cWjKA-z4">
+<meta name="msvalidate.01" content="22596E34341DD1D17D6022C44647E587">
+
+
+
+
+
+<meta name="theme-color" content="#02b875">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="迢晴">
+<meta name="msapplication-tooltip" content="迢晴">
+<meta name='msapplication-navbutton-color' content="#02b875">
+<meta name="msapplication-TileColor" content="#02b875">
+<meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+<link rel="icon" href="https://distancerr.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://distancerr.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://distancerr.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="https://distancerr.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://distancerr.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="https://distancerr.github.io/manifest.json">
+
+
+<link rel="preload" href="https://distancerr.github.io/styles/main-rendered.min.css" as="style">
+
+
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
+<link rel="preload" href="https://distancerr.github.io/images/avatar.jpg" as="image">
+<link rel="preload" href="https://distancerr.github.io/images/grey-prism.svg" as="image">
+
+
+<style>
+  body {
+    background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="https://distancerr.github.io/styles/main-rendered.min.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video-js.min.css">
+
+
+
+  
+  
+<!--[if lte IE 8]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-ie8@1.1.2/dist/videojs-ie8.min.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20180112/classList.min.js"></script>
+<![endif]-->
+
+
+</head>
+  <body>
+    <div class="suspension">
+      <a role="button" aria-label="Go to top" title="Go to top" class="to-top is-hide"><span class="icon icon-up" aria-hidden="true"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a href="https://distancerr.github.io"><img class="avatar" src="https://distancerr.github.io/images/avatar.jpg" alt="Avatar"></a>
+  
+  <h2 class="title"><a href="https://distancerr.github.io">迢晴</a></h2>
+  
+  <p class="subtitle">千里之行，厚积薄发</p>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
+  </button>
+
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item
+          
+          
+           is-active">
+          <a href="https://distancerr.github.io/">主页</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/tags/">标签</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/links/">友链</a>
+        </li>
+      
+        <li class="menu-item
+          
+          
+          ">
+          <a href="https://distancerr.github.io/about/">关于</a>
+        </li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list"><li class="social-item">
+          <a href="mailto:zou.tiaoqing@outlook.com" title="Email" aria-label="Email">
+            <span class="icon icon-email" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="//github.com/%e8%bf%a2%e6%99%b4" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="icon icon-github" aria-hidden="true"></span>
+          </a>
+        </li><li class="social-item">
+          <a href="https://distancerr.github.io/images/wechatQRCode.png" rel="me" title="Wechat" aria-label="Wechat">
+            <span class="icon icon-wechat" aria-hidden="true"></span>
+          </a>
+        </li></ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">构造Tensor的常用函数</h1>
+      <p class="post-meta">@迢晴 · Jul 23, 2019 · 2 min read</p>
+    </header>
+    <article class="post-content"><p>简单记录下关于pytorch下tensor常用的函数用法</p>
+
+<h3 id="tensor">Tensor</h3>
+
+<p>标量可以看作零维张量，向量可以看作一维张量，矩阵可看做二维张量，继续扩展数据的维度，可以得到更高维度的张量。因此张量可以看做多维数组</p>
+
+<p>载入所需模块</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> __future__ <span style="color:#f92672">import</span> print_function
+<span style="color:#f92672">import</span> torch <span style="color:#f92672">as</span> tr</code></pre></div>
+<p>生成一个随机初始化的矩阵</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(x)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[0.8478, 0.2716, 0.3589],
+    [0.7265, 0.3910, 0.6161],
+    [0.9920, 0.7389, 0.9596],
+    [0.2724, 0.5746, 0.2509],
+    [0.9536, 0.2308, 0.8867]])
+</code></pre>
+
+<p>查看类型</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>type())</code></pre></div>
+<p>输出：</p>
+
+<pre><code>torch.FloatTensor
+</code></pre>
+
+<p>转换类型</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>long() <span style="color:#75715e"># x = x.type(torch.LongTensor)</span>
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>type())</code></pre></div>
+<p>输出：</p>
+
+<pre><code>torch.LongTensor
+</code></pre>
+
+<p>每一行的最大值及下标</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">max_value, max_id <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>max(x, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(max_value, max_id)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([0.7084, 0.9339, 0.7877, 0.6788, 0.8990]) tensor([2, 2, 0, 2, 1])
+</code></pre>
+
+<p>生成一个数据类型为长整型的零矩阵</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, dtype <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>long) <span style="color:#75715e">#dtype == datatype</span>
+<span style="color:#66d9ef">print</span>(x)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]])
+</code></pre>
+
+<p>直接用给定数据生成一个tensor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>Tensor([<span style="color:#ae81ff">5.5</span>, <span style="color:#ae81ff">3</span>])
+<span style="color:#66d9ef">print</span>(x)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([5.5000, 3.0000])
+</code></pre>
+
+<p>在已有的tensor上生成一个新的tensor</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>)
+x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>new_ones(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, dtype <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>double)
+<span style="color:#66d9ef">print</span>(x)
+
+x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>randn_like(x, dtype <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>float)  <span style="color:#75715e">#double类型会被float类型覆盖</span>
+<span style="color:#66d9ef">print</span>(x)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[-1.9897e+00, -2.8295e-01, -1.5222e-02],
+    [-6.4042e-02,  8.7670e-01, -6.0948e-02],
+    [-5.1491e-01, -1.9522e+00,  1.1132e+00],
+    [-4.9585e-01, -1.4224e-03, -4.2239e-01],
+    [ 9.2281e-01,  1.2657e+00,  2.1397e-01]])
+</code></pre>
+
+<p>获取矩阵大小</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>size())  <span style="color:#75715e">#torch.Size其实是一个元组，所以它支持所有的元组操作</span>
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>shape)   <span style="color:#75715e">#两种方法都可以</span></code></pre></div>
+<p>输出：</p>
+
+<pre><code>torch.Size([5, 3])
+</code></pre>
+
+<p>操作一</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(x <span style="color:#f92672">+</span> y)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[ 1.9503, -0.0353,  2.5580],
+    [-0.3438,  2.2657,  0.0182],
+    [-1.0391,  1.4222,  0.6151],
+    [ 0.9619, -0.2834,  0.3588],
+    [ 0.2626,  1.5410, -0.2223]])
+</code></pre>
+
+<p>操作二</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(torch<span style="color:#f92672">.</span>add(x,y))</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[ 1.9503, -0.0353,  2.5580],
+    [-0.3438,  2.2657,  0.0182],
+    [-1.0391,  1.4222,  0.6151],
+    [ 0.9619, -0.2834,  0.3588],
+    [ 0.2626,  1.5410, -0.2223]])
+</code></pre>
+
+<p>操作三</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">result <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>empty(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>)
+torch<span style="color:#f92672">.</span>add(x, y, out <span style="color:#f92672">=</span> result)
+<span style="color:#66d9ef">print</span>(result)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[ 1.9503, -0.0353,  2.5580],
+    [-0.3438,  2.2657,  0.0182],
+    [-1.0391,  1.4222,  0.6151],
+    [ 0.9619, -0.2834,  0.3588],
+    [ 0.2626,  1.5410, -0.2223]])
+</code></pre>
+
+<p>操作四</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y<span style="color:#f92672">.</span>add_(x)
+<span style="color:#66d9ef">print</span>(y)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([[ 1.9503, -0.0353,  2.5580],
+    [-0.3438,  2.2657,  0.0182],
+    [-1.0391,  1.4222,  0.6151],
+    [ 0.9619, -0.2834,  0.3588],
+    [ 0.2626,  1.5410, -0.2223]])
+</code></pre>
+
+<p><div class="note warning"><p>任何对tensor的in-place操作都必须携带一个&rdquo;_&rdquo;</p></div>
+打印矩阵的行或列</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(x[:, <span style="color:#ae81ff">1</span>]) <span style="color:#75715e">#冒号前代表行，冒号后代表列，索引从零开始</span></code></pre></div>
+<p>输出</p>
+
+<pre><code>tensor([-0.4348,  1.5911,  0.5826, -0.8512,  1.0653])
+</code></pre>
+
+<p>单值tensor转为python下的值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(x)
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>item())</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([-0.6118])
+-0.6117833256721497
+</code></pre>
+
+<p>调整tensor大小</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>)
+y <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>view(<span style="color:#ae81ff">16</span>)
+z <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>view(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">8</span>)  <span style="color:#75715e">#-1 表示任意数都可以</span>
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>size(), y<span style="color:#f92672">.</span>size(), z<span style="color:#f92672">.</span>size())</code></pre></div>
+<p>输出：</p>
+
+<pre><code>torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])
+</code></pre>
+
+<p>变化维度</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>ones(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>shape)
+x<span style="color:#f92672">.</span>unsqueeze_(<span style="color:#ae81ff">0</span>) 
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>shape)
+x<span style="color:#f92672">.</span>transpose_(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
+<span style="color:#66d9ef">print</span>(x<span style="color:#f92672">.</span>shape)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>torch.Size([5, 3])
+torch.Size([1, 5, 3])
+torch.Size([5, 1, 3])
+</code></pre>
+
+<p>稍后阅读</p>
+
+<p><a href="https://pytorch.org/docs/stable/torch.html">这里</a>描述了一百多种张量操作，包括转置，索引，数学运算，线性代数，随机数等。</p>
+
+<h3 id="numpy-bridge">numpy bridge</h3>
+
+<p><div class="note info"><p>torch张量和numpy数组相互转化非常简单，而且他们共享地址(如果torch张量是运行在CPU上)，一个被改变，另一个也遂着 被改变</p></div>
+把torch张量转化为numpy数组</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>ones(<span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">print</span>(a)
+b <span style="color:#f92672">=</span> a<span style="color:#f92672">.</span>numpy()
+<span style="color:#66d9ef">print</span>(b)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([1., 1., 1., 1., 1.])
+[1. 1. 1. 1. 1.]
+</code></pre>
+
+<p>改变numpy数组的值</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a<span style="color:#f92672">.</span>add_(<span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(a)
+<span style="color:#66d9ef">print</span>(b)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([2., 2., 2., 2., 2.])
+[2. 2. 2. 2. 2.]
+</code></pre>
+
+<p>从numpy数组转化为torch张量</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>ones(<span style="color:#ae81ff">5</span>)
+b <span style="color:#f92672">=</span> tr<span style="color:#f92672">.</span>from_numpy(a)
+<span style="color:#66d9ef">print</span>(a)
+<span style="color:#66d9ef">print</span>(b)
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>add(a, <span style="color:#ae81ff">1</span>))</code></pre></div>
+<p>输出：</p>
+
+<pre><code>[1. 1. 1. 1. 1.]
+tensor([1., 1., 1., 1., 1.], dtype=torch.float64)
+[2. 2. 2. 2. 2.]
+</code></pre>
+
+<p>gpu上运行张量</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>ones(<span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">if</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available():
+    gpu_x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>cuda(<span style="color:#ae81ff">0</span>)  <span style="color:#75715e">#gpu运行</span>
+    <span style="color:#66d9ef">print</span>(gpu_x)
+    cpu_x <span style="color:#f92672">=</span> gpu_x<span style="color:#f92672">.</span>cpu() <span style="color:#75715e"># 转回至cpu</span>
+    <span style="color:#66d9ef">print</span>(cpu_x)</code></pre></div>
+<p>输出：</p>
+
+<pre><code>tensor([1., 1., 1., 1., 1.], device='cuda:0')
+tensor([1., 1., 1., 1., 1.])
+</code></pre></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://distancerr.github.io/tags/pytorch"><span class="tag">Pytorch</span></a></li>
+        
+          <li><a href="https://distancerr.github.io/tags/tensor"><span class="tag">Tensor</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  
+<footer class="site-footer">
+  <p>© 2017-2019 迢晴</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
+  
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@15.0.0/dist/smooth-scroll.min.js"></script>
+
+
+
+<script async src="https://cdn.jsdelivr.net/npm/video.js@7.3.0/dist/video.min.js"></script>
+
+
+
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    },
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+
+
+<script src="https://distancerr.github.io/scripts/index.min.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('\/service-worker.js').then(function() {
+      console.log('[ServiceWorker] Registered');
+    });
+  }
+</script>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-XXXXXXXX-X', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </body>
+</html>

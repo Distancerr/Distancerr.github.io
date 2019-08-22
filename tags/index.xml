@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 迢晴</title>
+    <link>https://distancerr.github.io/tags/</link>
+    <description>Recent content in Tags on 迢晴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Sat, 03 Aug 2019 17:53:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://distancerr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://distancerr.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Sat, 03 Aug 2019 17:53:05 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Const</title>
+      <link>https://distancerr.github.io/tags/const/</link>
+      <pubDate>Sat, 03 Aug 2019 17:53:05 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/const/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Primer</title>
+      <link>https://distancerr.github.io/tags/primer/</link>
+      <pubDate>Tue, 23 Jul 2019 23:54:20 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/primer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>智能指针</title>
+      <link>https://distancerr.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</link>
+      <pubDate>Tue, 23 Jul 2019 23:53:11 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>运动学解析</title>
+      <link>https://distancerr.github.io/tags/%E8%BF%90%E5%8A%A8%E5%AD%A6%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Tue, 23 Jul 2019 23:52:34 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/%E8%BF%90%E5%8A%A8%E5%AD%A6%E8%A7%A3%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://distancerr.github.io/tags/linux/</link>
+      <pubDate>Tue, 23 Jul 2019 23:52:04 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matlab</title>
+      <link>https://distancerr.github.io/tags/matlab/</link>
+      <pubDate>Tue, 23 Jul 2019 23:52:04 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/matlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://distancerr.github.io/tags/git/</link>
+      <pubDate>Tue, 23 Jul 2019 23:51:57 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://distancerr.github.io/tags/python/</link>
+      <pubDate>Tue, 23 Jul 2019 23:51:24 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>爬虫</title>
+      <link>https://distancerr.github.io/tags/%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Tue, 23 Jul 2019 23:51:24 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/%E7%88%AC%E8%99%AB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pytorch</title>
+      <link>https://distancerr.github.io/tags/pytorch/</link>
+      <pubDate>Tue, 23 Jul 2019 23:50:23 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensor</title>
+      <link>https://distancerr.github.io/tags/tensor/</link>
+      <pubDate>Tue, 23 Jul 2019 23:50:23 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/tensor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VSCode</title>
+      <link>https://distancerr.github.io/tags/vscode/</link>
+      <pubDate>Tue, 23 Jul 2019 14:22:55 +0800</pubDate>
+      
+      <guid>https://distancerr.github.io/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
